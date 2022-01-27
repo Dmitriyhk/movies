@@ -1,0 +1,26 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmitriyhk/movies.git"
+  },
+  "author": "Dmitriy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dmitriyhk/movies/issues"
+  },
+  "homepage": "https://github.com/Dmitriyhk/movies#readme",
+  "devDependencies": {
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  }
+}
