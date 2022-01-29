@@ -1,2 +1,2 @@
 import '../scss/main.scss'
-console.log('hello putin')
+import '../modules/header/header'
