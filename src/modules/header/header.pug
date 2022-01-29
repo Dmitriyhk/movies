@@ -1,2 +1,22 @@
-.jora 
-  p У егора нет пломбира
+header 
+  .header 
+    a(href="#").header-logo
+      img(src=require('../../img/logo.svg').default, alt="Logo").header-img
+      p Movies
+    nav 
+      ul.nav 
+        li.nav-item 
+          a(href="#").nav-link.active Home 
+        li.nav-item 
+          a(href="#").nav-link Movies
+        li.nav-item 
+          a(href="#").nav-link Serials
+        li.nav-item 
+          a(href="#").nav-link Home 
+    ul.control
+      li.control-item 
+        button.control-btn.control-btn_search
+      li.control-item 
+        button.control-btn.control-btn_notice
+      li.control-item 
+        button.control-btn.control-btn_createacc
