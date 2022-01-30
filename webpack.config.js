@@ -95,7 +95,8 @@ module.exports = {
   output: {
     filename: `./js/${filename('js')}`,
     path: path.resolve(__dirname, 'app'),
-    publicPath: ''
+    publicPath: '',
+    assetModuleFilename: 'img/[name][ext]',
   },
   devServer: {
     static: {
@@ -148,16 +149,12 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
-        test: /\.(?:|gif|png|jpg|jpeg|svg)$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: `./img/${filename('[ext]')}`
-          }
-        }],
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       },
+      
       {
-        test: /\.(?:|woff2)$/,
+        test: /\.(?:|woff2|ttf)$/,
         use: [{
           loader: 'file-loader',
           options: {
