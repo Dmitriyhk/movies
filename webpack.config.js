@@ -1,7 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
@@ -48,7 +47,6 @@ const plugins = () => {
         collapseWhitespace: isProd
       }
     })),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: `./css/${filename('css')}`
     }),
@@ -96,7 +94,7 @@ module.exports = {
     filename: `./js/${filename('js')}`,
     path: path.resolve(__dirname, 'app'),
     publicPath: '',
-    assetModuleFilename: 'img/[name][ext]',
+    clean: true,
   },
   devServer: {
     static: {
@@ -151,16 +149,17 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
+        generator: {
+          filename: 'img/[name][ext]'
+        }
       },
       
       {
-        test: /\.(?:|woff2|ttf)$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: `./fonts/${filename('[ext]')}`
-          }
-        }],
+        test: /\.(?:|woff2|ttf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        },
       }
     ]
   }
