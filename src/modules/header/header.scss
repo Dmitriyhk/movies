@@ -13,14 +13,15 @@
     text-decoration: none;
   }
   &-img {
-    background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
+    background: $bg-gradient-safe;
+    background: $bg-gradient;
     border-radius: 15px;
     width: 50px;
   }
   &-text {
     font-size: 20px;
-    color: #26FFF2;
-    padding-left: 1px;
+    color: $bg-gradient-safe;
+    padding-left: 10px;
     font-family: "Marcellus", sans-serif;
   }
 }
@@ -30,20 +31,25 @@
   list-style: none;
   padding-left: 0;
   &-item {
-    margin-left: 55px;
+    margin: 0 25px;
   }
   &-link {
     text-decoration: none;
     font-weight: 700;
     color: rgba($white, 0.5);
     position: relative;
+    transition: 0.2s ease color;
+    &:hover {
+      color: $white;
+    }
     &::after {
       content: '';
       display: block;
       width: 100%;
       height: 2px;
       margin-top: 5px;
-      background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
+      background: $bg-gradient-safe;
+      background: $bg-gradient;
       border-radius: 50px;
       opacity: 0;
     }

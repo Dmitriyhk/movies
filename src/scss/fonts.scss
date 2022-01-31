@@ -5,16 +5,24 @@
   font-weight: normal; 
   } 
 
-  @font-face {
-    font-family: "Mulish"; 
-    src: url("../fonts/Mulish-Regular.woff2"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
+@font-face {
+  font-family: "Mulish"; 
+  src: url("../fonts/Mulish-Regular.woff2"); 
+  font-style: normal; 
+  font-weight: 400; 
+  } 
 
-    @font-face {
-      font-family: "Mulish"; 
-      src: url("../fonts/Mulish-Bold.woff2"); 
-      font-style: normal; 
-      font-weight: bold; 
-      } 
+@font-face {
+  font-family: "Mulish"; 
+  src: url("../fonts/Mulish-Bold.woff2"); 
+  font-style: normal; 
+  font-weight: 700; 
+  } 
+
+@font-face {
+  font-family: "Mulish"; 
+  src: url("../fonts/Mulish-ExtraBold.woff2"); 
+  font-style: normal; 
+  font-weight: 800; 
+  } 
+

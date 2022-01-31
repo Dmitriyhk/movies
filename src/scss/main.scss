@@ -1,31 +1,14 @@
 @import './variables.scss';
 @import './fonts.scss';
+
 @import '../modules/header/header.scss';
-// @import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Mulish:wght@400;700&display=swap');
+@import '../modules/banner/banner.scss';
+
+
+
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: $black;
+  color: $white;
   font-size: 16px;
   font-family: "Mulish", sans-serif;
 }
-
-@font-face {
-  font-family: "Marcellus"; 
-  src: url("../fonts/Marcellus-Regular.woff2"); 
-  font-style: normal; 
-  font-weight: normal; 
-  } 
-
-  @font-face {
-    font-family: "Mulish"; 
-    src: url("../fonts/Mulish-Regular.woff2"); 
-    font-style: normal; 
-    font-weight: normal; 
-    } 
-
-    @font-face {
-      font-family: "Mulish"; 
-      src: url("../fonts/Mulish-Bold.woff2"); 
-      font-style: normal; 
-      font-weight: bold; 
-      } 
