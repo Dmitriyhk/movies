@@ -3,6 +3,7 @@
 
 @import '../modules/header/header.scss';
 @import '../modules/banner/banner.scss';
+@import '../modules/content/content.scss';
 
 
 
@@ -11,4 +12,11 @@ body {
   color: $white;
   font-size: 16px;
   font-family: "Mulish", sans-serif;
+}
+
+.container {
+  max-width: 1440px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto; 
 }

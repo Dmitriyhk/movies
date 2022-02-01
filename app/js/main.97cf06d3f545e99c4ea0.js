@@ -1,6 +1,46 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./modules/banner/banner.js":
+/*!**********************************!*\
+  !*** ./modules/banner/banner.js ***!
+  \**********************************/
+/***/ (() => {
+
+// const bannerImg = document.querySelector('.section-banner__img')
+// const getData = (url) =>
+//   new Promise((resolve, reject) =>
+//   fetch(url, {
+//     method: 'GET',
+//     headers: {
+//         'X-API-KEY': '757f6afa-954c-4484-9629-04d0c3a9a842',
+//         'Content-Type': 'application/json',
+//     },
+// })
+//     .then(response => response.json())
+//     .then(json => resolve(json))
+//     .catch(error => reject(error))
+//   )
+// let link = 'https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=7&order=RATING&type=FILM&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1'
+// getData(link)
+//   .then(data => showMovies(data))
+//   .catch(error => console.log(error.message))
+//   function showMovies(data) {
+//     console.log(data)
+//   }
+
+/***/ }),
+
+/***/ "./modules/content/content.js":
+/*!************************************!*\
+  !*** ./modules/content/content.js ***!
+  \************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
 /***/ "./modules/header/header.js":
 /*!**********************************!*\
   !*** ./modules/header/header.js ***!
@@ -103,6 +143,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/main.scss */ "./scss/main.scss");
 /* harmony import */ var _modules_header_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/header/header */ "./modules/header/header.js");
 /* harmony import */ var _modules_header_header__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_modules_header_header__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _modules_banner_banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/banner/banner */ "./modules/banner/banner.js");
+/* harmony import */ var _modules_banner_banner__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_banner_banner__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _modules_content_content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/content/content */ "./modules/content/content.js");
+/* harmony import */ var _modules_content_content__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_content_content__WEBPACK_IMPORTED_MODULE_3__);
+
+
 
 
 })();

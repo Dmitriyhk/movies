@@ -1,9 +1,4 @@
-.container {
-  max-width: 1440px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin: 0 auto; 
-}
+
 
 
 .section-banner {
@@ -14,12 +9,13 @@
     position: absolute;
     right: 0;
     z-index: -1;
+    height: 100%;
   }
 }
 
 .banner {
   max-width: 562px;
-  padding-top: 122px;
+  padding-top: 55px;
   padding-bottom: 203px;
   background-color: $black;
   box-shadow: 100px 0px 100px $black;
