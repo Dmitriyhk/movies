@@ -31,10 +31,112 @@
 
 /***/ }),
 
+/***/ "./modules/content/actor/actor.js":
+/*!****************************************!*\
+  !*** ./modules/content/actor/actor.js ***!
+  \****************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
 /***/ "./modules/content/content.js":
 /*!************************************!*\
   !*** ./modules/content/content.js ***!
   \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _trending_movies_movies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./trending_movies/movies */ "./modules/content/trending_movies/movies.js");
+/* harmony import */ var _trending_movies_movies__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_trending_movies_movies__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _trending_twshows_twshows__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./trending_twshows/twshows */ "./modules/content/trending_twshows/twshows.js");
+/* harmony import */ var _trending_twshows_twshows__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_trending_twshows_twshows__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _genres_genres__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./genres/genres */ "./modules/content/genres/genres.js");
+/* harmony import */ var _genres_genres__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_genres_genres__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _actor_actor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actor/actor */ "./modules/content/actor/actor.js");
+/* harmony import */ var _actor_actor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_actor_actor__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+/***/ }),
+
+/***/ "./modules/content/genres/genres.js":
+/*!******************************************!*\
+  !*** ./modules/content/genres/genres.js ***!
+  \******************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./modules/content/trending_movies/movies.js":
+/*!***************************************************!*\
+  !*** ./modules/content/trending_movies/movies.js ***!
+  \***************************************************/
+/***/ (() => {
+
+var getData = function getData(url) {
+  return new Promise(function (resolve, reject) {
+    return fetch(url, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': '757f6afa-954c-4484-9629-04d0c3a9a842',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      return resolve(json);
+    })["catch"](function (error) {
+      return reject(error);
+    });
+  });
+};
+
+var link = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1';
+getData(link).then(function (data) {
+  return showMovies(data);
+})["catch"](function (error) {
+  return console.log(error.message);
+});
+
+function showMovies(data) {
+  var test = document.querySelector('.test');
+
+  for (var i = 0; i < 6; i++) {
+    var el = data.films[i];
+    var img = document.createElement('img');
+
+    var _link = document.createElement('a');
+
+    var div = document.createElement('div');
+    img.src = el.posterUrlPreview;
+    _link.href = "https://www.kinopoisk.ru/film/".concat(el.filmId);
+    _link.target = "_blank";
+    img.classList.add('movies__img');
+
+    _link.classList.add('movies__link');
+
+    div.classList.add('movies-item');
+
+    _link.append(img);
+
+    div.append(_link);
+    test.append(div);
+  }
+}
+
+/***/ }),
+
+/***/ "./modules/content/trending_twshows/twshows.js":
+/*!*****************************************************!*\
+  !*** ./modules/content/trending_twshows/twshows.js ***!
+  \*****************************************************/
 /***/ (() => {
 
 
@@ -146,7 +248,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_banner_banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/banner/banner */ "./modules/banner/banner.js");
 /* harmony import */ var _modules_banner_banner__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_banner_banner__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _modules_content_content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/content/content */ "./modules/content/content.js");
-/* harmony import */ var _modules_content_content__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_modules_content_content__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
@@ -155,3 +256,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
+//# sourceMappingURL=main.js.map

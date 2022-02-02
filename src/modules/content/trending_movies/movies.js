@@ -1,0 +1,39 @@
+const getData = (url) =>
+  new Promise((resolve, reject) =>
+  fetch(url, {
+    method: 'GET',
+    headers: {
+        'X-API-KEY': '757f6afa-954c-4484-9629-04d0c3a9a842',
+        'Content-Type': 'application/json',
+    },
+})
+    .then(response => response.json())
+    .then(json => resolve(json))
+    .catch(error => reject(error))
+  )
+let link = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1'
+
+getData(link)
+  .then(data => showMovies(data))
+  .catch(error => console.log(error.message))
+  
+
+  function showMovies(data) {
+    const test = document.querySelector('.test')
+    for (let i = 0; i < 6; i++) {
+      let el = data.films[i]
+      let img = document.createElement('img')
+      let link = document.createElement('a')
+      let div = document.createElement('div')
+      img.src = el.posterUrlPreview
+      link.href = `https://www.kinopoisk.ru/film/${el.filmId}`
+      link.target="_blank"
+      img.classList.add('movies__img')
+      link.classList.add('movies__link')
+      div.classList.add('movies-item')
+      link.append(img)
+      div.append(link)
+      test.append(div)
+    }
+  }
+

@@ -1,3 +1,6 @@
+@import './genres/genres.scss';
+@import './actor/actor.scss';
+
 .section {
   padding-top: 50px;
   &__h2 {
@@ -25,6 +28,7 @@
     color: $white;
     font-family: "Mulish", sans-serif;
     font-weight: 800;
+    font-size: 16px;
     padding: 15px 34px;
     text-align: center;
     margin-top: 64px;
