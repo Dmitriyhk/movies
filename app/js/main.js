@@ -57,6 +57,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _genres_genres__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_genres_genres__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _actor_actor__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./actor/actor */ "./modules/content/actor/actor.js");
 /* harmony import */ var _actor_actor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_actor_actor__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _marketing_marketing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./marketing/marketing */ "./modules/content/marketing/marketing.js");
+/* harmony import */ var _marketing_marketing__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_marketing_marketing__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -68,6 +71,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************!*\
   !*** ./modules/content/genres/genres.js ***!
   \******************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./modules/content/marketing/marketing.js":
+/*!************************************************!*\
+  !*** ./modules/content/marketing/marketing.js ***!
+  \************************************************/
 /***/ (() => {
 
 

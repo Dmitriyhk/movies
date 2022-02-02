@@ -1,5 +1,7 @@
 @import './genres/genres.scss';
 @import './actor/actor.scss';
+@import './marketing/marketing.scss';
+@import './offer/offer.scss';
 
 .section {
   padding-top: 50px;
@@ -37,7 +39,6 @@
     &:hover {
       box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.8);
     }
-
   }
 }
 
