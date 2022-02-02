@@ -59,6 +59,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actor_actor__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_actor_actor__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _marketing_marketing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./marketing/marketing */ "./modules/content/marketing/marketing.js");
 /* harmony import */ var _marketing_marketing__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_marketing_marketing__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _offer_offer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./offer/offer */ "./modules/content/offer/offer.js");
+/* harmony import */ var _offer_offer__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_offer_offer__WEBPACK_IMPORTED_MODULE_5__);
+
 
 
 
@@ -81,6 +84,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!************************************************!*\
   !*** ./modules/content/marketing/marketing.js ***!
   \************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./modules/content/offer/offer.js":
+/*!****************************************!*\
+  !*** ./modules/content/offer/offer.js ***!
+  \****************************************/
 /***/ (() => {
 
 
@@ -269,4 +282,3 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
-//# sourceMappingURL=main.js.map
