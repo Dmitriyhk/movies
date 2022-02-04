@@ -7,14 +7,16 @@ header
         li.nav-item 
           a(href="#").nav-link.active Home 
         li.nav-item 
-          a(href="movie.html").nav-link Movies
+          a(href="movieList.html").nav-link Movies
         li.nav-item 
           a(href="#").nav-link Serials
         li.nav-item 
           a(href="#").nav-link Home 
     ul.control
       li.control-item 
-        button.control-btn.control-btn_search
+        //- button.control-btn.control-btn_search
+        form 
+          input(type="text" placeholder="Поиск").control__search
       li.control-item 
         button.control-btn.control-btn_notification
       li.control-item 
