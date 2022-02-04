@@ -1,0 +1,73 @@
+.container {
+  &-item {
+    display: flex;
+    margin: 30px 200px;
+  }
+  &__img {
+    margin-right: 80px;
+    height: 350px;
+  }
+}
+
+.description {
+  &-info {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+    &__country {
+      margin-right:15px;
+      list-style: none;
+    }
+    &__year {
+      margin: 0 15px;
+    }
+    &__time {
+      margin: 0 15px;
+    }
+    &__age {
+      margin: 0 15px;
+    }
+  }
+  &-ganres {
+    display: flex;
+    align-items: center;
+    &__title {
+      margin-right: 20px;
+    }
+    &__ganre {
+      text-decoration: none;
+      padding: 7px;
+      margin-right: 20px;
+      background: $bg-gradient-safe;
+      background: $bg-gradient;
+      color: $black;
+      border-radius: 20px;
+    }
+  }
+  &-rating {
+    display: flex;
+    align-items: center;
+    &__title {
+      margin-right: 20px;
+    }
+    &__rating {
+      position: relative;
+      width: 60px;
+      display: inline-block;
+      text-align: center;
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 24px;
+        background-image: url(../img/age.svg);
+        background-repeat: no-repeat;
+        block-size: cover;
+        position: absolute;
+        top: calc(50% - 12px);
+        left: 0;
+        right: 0;
+      }
+    }
+  }
+}

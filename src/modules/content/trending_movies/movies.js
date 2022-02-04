@@ -18,22 +18,27 @@ getData(link)
   .catch(error => console.log(error.message))
   
 
-  function showMovies(data) {
-    const test = document.querySelector('.test')
-    for (let i = 0; i < 6; i++) {
-      let el = data.films[i]
-      let img = document.createElement('img')
-      let link = document.createElement('a')
-      let div = document.createElement('div')
-      img.src = el.posterUrlPreview
-      link.href = `https://www.kinopoisk.ru/film/${el.filmId}`
-      link.target="_blank"
-      img.classList.add('movies__img')
-      link.classList.add('movies__link')
-      div.classList.add('movies-item')
-      link.append(img)
-      div.append(link)
-      test.append(div)
-    }
+function showMovies(data) {
+  const test = document.querySelector('.test')
+  for (let i = 0; i < 6; i++) {
+    let el = data.films[i]
+    let img = document.createElement('img')
+    let link = document.createElement('a')
+    let div = document.createElement('div')
+    img.src = el.posterUrlPreview
+    link.href = "../movie.html?id=" + el.filmId
+    // div.addEventListener('click', function() {
+    //   document.location = "../movie.html?id=" + el.filmId
+    // })
+    img.classList.add('movies__img')
+    link.classList.add('movies__link')
+    div.classList.add('movies-item')
+    link.append(img)
+    div.append(link)
+    test.append(div)
   }
+}
+
+
+  
 

@@ -1,10 +1,9 @@
-
-
-
 .section-banner {
+  background-color: $black;
   border-bottom: 1px solid #2F2E2E;
   position: relative;
   overflow: hidden;
+  z-index: -1;
   &__img {
     position: absolute;
     right: 0;
@@ -17,12 +16,12 @@
   max-width: 562px;
   padding-top: 55px;
   padding-bottom: 203px;
-  background-color: $black;
   box-shadow: 100px 0px 100px $black;
   &__title {
     font-family: "Marcellus", sans-serif;
     font-size: 80px;
     line-height: 70px;
+    color: $white;
   }
   &__text {
     color: #C2C2C2;
@@ -30,6 +29,7 @@
     line-height: 28px;
   }
   &-info {
+    color: $white;
     font-weight: 800;
     &__year {
       margin-right: 18px; 

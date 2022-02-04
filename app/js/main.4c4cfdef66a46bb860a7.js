@@ -142,8 +142,10 @@ function showMovies(data) {
 
     var div = document.createElement('div');
     img.src = el.posterUrlPreview;
-    _link.href = "https://www.kinopoisk.ru/film/".concat(el.filmId);
-    _link.target = "_blank";
+    _link.href = "../movie.html?id=" + el.filmId; // div.addEventListener('click', function() {
+    //   document.location = "../movie.html?id=" + el.filmId
+    // })
+
     img.classList.add('movies__img');
 
     _link.classList.add('movies__link');
@@ -174,6 +176,135 @@ function showMovies(data) {
   !*** ./modules/header/header.js ***!
   \**********************************/
 /***/ (() => {
+
+var nigth = document.querySelector('.control-btn_createacc');
+var body = document.querySelector('body'); // localStorage.setItem('nightMode', true)
+
+console.log(localStorage.getItem('nightMode'));
+
+if (localStorage.getItem('nightMode') == 2) {
+  body.style.backgroundColor = '#fff';
+  body.style.color = '#000';
+  console.log('первая проверка if');
+} else {
+  body.style.backgroundColor = '#000';
+  body.style.color = '#fff';
+  console.log('первая проверка else');
+  localStorage.setItem('nightMode', 1);
+}
+
+nigth.addEventListener('click', function () {
+  if (localStorage.getItem('nightMode') == 2) {
+    body.style.backgroundColor = '#000';
+    body.style.color = '#fff';
+    localStorage.setItem('nightMode', 1);
+    console.log(localStorage.getItem('nightMode'));
+    console.log('клик проверка if');
+  } else {
+    body.style.backgroundColor = '#dddddd';
+    body.style.color = '#000';
+    localStorage.setItem('nightMode', 2);
+    console.log(localStorage.getItem('nightMode'));
+    console.log('клик проверка else');
+  }
+});
+
+/***/ }),
+
+/***/ "./modules/watch_movie/description/description.js":
+/*!********************************************************!*\
+  !*** ./modules/watch_movie/description/description.js ***!
+  \********************************************************/
+/***/ (() => {
+
+var id = window.location.href.split("?")[1].split("=")[1];
+
+var getData = function getData(url) {
+  return new Promise(function (resolve, reject) {
+    return fetch(url, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': '757f6afa-954c-4484-9629-04d0c3a9a842',
+        'Content-Type': 'application/json'
+      }
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      return resolve(json);
+    })["catch"](function (error) {
+      return reject(error);
+    });
+  });
+};
+
+var link = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/' + id;
+getData(link).then(function (data) {
+  return showMovies(data);
+})["catch"](function (error) {
+  return console.log(error.message);
+});
+var movieImg = document.querySelector('.container__img');
+var movieName = document.querySelector('.description__name');
+var movieCountry = document.querySelector('.description-info__country');
+var movieYear = document.querySelector('.description-info__year');
+var movieTime = document.querySelector('.description-info__time');
+var movieAge = document.querySelector('.description-info__age');
+var movieGanres = document.querySelector('.description-ganres');
+var movieRating = document.querySelector('.description-rating__rating');
+var movieText = document.querySelector('.description__text');
+
+function showMovies(data) {
+  console.log(data);
+  movieImg.src = data.posterUrlPreview;
+  movieName.innerHTML = data.nameRu;
+  movieCountry.innerHTML = data.countries[0].country;
+  movieYear.innerHTML = data.year;
+  movieTime.innerHTML = data.filmLength;
+  movieAge.innerHTML = data.ratingAgeLimits.replace(/[^\d]/g, '') + '+';
+  data.genres.forEach(function (el) {
+    var linkGenre = document.createElement('a');
+    linkGenre.href = '#';
+    linkGenre.classList.add('description-ganres__ganre');
+    linkGenre.innerHTML = el.genre;
+    movieGanres.append(linkGenre);
+  });
+  movieRating.innerHTML = data.ratingKinopoisk;
+  movieText.innerHTML = data.description;
+}
+
+/***/ }),
+
+/***/ "./modules/watch_movie/player/player.js":
+/*!**********************************************!*\
+  !*** ./modules/watch_movie/player/player.js ***!
+  \**********************************************/
+/***/ (() => {
+
+var player = document.querySelector('.player');
+var id = window.location.href.split("?")[1].split("=")[1];
+var div = document.createElement('div');
+var script = document.createElement('script');
+script.src = '//yohoho.cc/yo.js';
+div.id = 'yohoho';
+div.dataset.kinopoisk = id;
+player.append(div);
+player.append(script);
+console.log(div);
+
+/***/ }),
+
+/***/ "./modules/watch_movie/watch_movie.js":
+/*!********************************************!*\
+  !*** ./modules/watch_movie/watch_movie.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _description_description__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./description/description */ "./modules/watch_movie/description/description.js");
+/* harmony import */ var _description_description__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_description_description__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _player_player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./player/player */ "./modules/watch_movie/player/player.js");
+/* harmony import */ var _player_player__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_player_player__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
@@ -274,6 +405,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_banner_banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/banner/banner */ "./modules/banner/banner.js");
 /* harmony import */ var _modules_banner_banner__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_banner_banner__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _modules_content_content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/content/content */ "./modules/content/content.js");
+/* harmony import */ var _modules_watch_movie_watch_movie__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/watch_movie/watch_movie */ "./modules/watch_movie/watch_movie.js");
+
 
 
 
