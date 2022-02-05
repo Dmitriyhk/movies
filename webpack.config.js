@@ -89,14 +89,11 @@ const plugins = () => {
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: {
-    main: './js/main.js',
-    test: './js/test.js'
-  },
+  entry: ["regenerator-runtime/runtime.js", './js/main.js'],
   output: {
     filename: `./js/${filename('js')}`,
     path: path.resolve(__dirname, 'app'),
-    publicPath: '',
+    // publicPath: '',
     clean: true,
   },
   devServer: {

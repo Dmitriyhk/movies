@@ -211,18 +211,6 @@ nigth.addEventListener('click', function () {
 
 /***/ }),
 
-/***/ "./modules/watch_movie/watch_movie.js":
-/*!********************************************!*\
-  !*** ./modules/watch_movie/watch_movie.js ***!
-  \********************************************/
-/***/ (() => {
-
-// import './description/description'
-// import './player/player'
-// import './similar_films/similar_films'
-
-/***/ }),
-
 /***/ "./scss/main.scss":
 /*!************************!*\
   !*** ./scss/main.scss ***!
@@ -318,13 +306,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_banner_banner__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/banner/banner */ "./modules/banner/banner.js");
 /* harmony import */ var _modules_banner_banner__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_modules_banner_banner__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _modules_content_content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/content/content */ "./modules/content/content.js");
-/* harmony import */ var _modules_watch_movie_watch_movie__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../modules/watch_movie/watch_movie */ "./modules/watch_movie/watch_movie.js");
-/* harmony import */ var _modules_watch_movie_watch_movie__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_modules_watch_movie_watch_movie__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
- // import '../modules/movie_list/movie_list'
 })();
 
 /******/ })()

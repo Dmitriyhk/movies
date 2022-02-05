@@ -1,3 +1,5 @@
+import './search'
+
 const nigth = document.querySelector('.control-btn_createacc')
 let body = document.querySelector('body')
 // localStorage.setItem('nightMode', true)
