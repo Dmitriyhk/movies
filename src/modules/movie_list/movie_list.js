@@ -32,6 +32,7 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
     data.films.forEach(movie => {
       const movieEl = document.createElement('div')
       movieEl.classList.add('movie')
+      console.log(movie.genres)
       movieEl.innerHTML = `
         <div class="movie__cover-inner">
         <a href="movie.html?id=${movie.filmId}" class="movie__link"> 
@@ -45,7 +46,7 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
         <div class="movie-info">
           <div class="movie-info__title">${movie.nameRu}</div>
           <div class="movie-info__genre">${movie.genres.map(
-            (genre) => `<a href="" class="movie-info__genre-link"> ${genre.genre}</a>`
+            (genre) => `<a href="movieList.html?id=${genre.genre}" class="movie-info__genre-link"> ${genre.genre}</a>`
           )}</div>
           ${
             setRating(movie.rating) &&

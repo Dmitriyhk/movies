@@ -19,12 +19,13 @@ getData(link)
   
 
 function showMovies(data) {
-  const test = document.querySelector('.test')
+  const test = document.querySelector('.movies-trendingMovies')
   for (let i = 0; i < 6; i++) {
     let el = data.films[i]
     let img = document.createElement('img')
     let link = document.createElement('a')
     let div = document.createElement('div')
+    let content = document.createElement('div')
     img.src = el.posterUrlPreview
     link.href = "../movie.html?id=" + el.filmId
     // div.addEventListener('click', function() {
@@ -33,7 +34,10 @@ function showMovies(data) {
     img.classList.add('movies__img')
     link.classList.add('movies__link')
     div.classList.add('movies-item')
+    content.classList.add('movies__content')
+    content.innerHTML = `<p class='movies__title'>${el.nameRu}</p><p class='movies__subTitle'>${el.year}</p>`
     link.append(img)
+    link.append(content)
     div.append(link)
     test.append(div)
   }
