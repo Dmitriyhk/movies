@@ -20,7 +20,7 @@ getData(link)
 
 function showMovies(data) {
   const test = document.querySelector('.movies-trendingMovies')
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 20; i++) {
     let el = data.films[i]
     let img = document.createElement('img')
     let link = document.createElement('a')
@@ -34,6 +34,7 @@ function showMovies(data) {
     img.classList.add('movies__img')
     link.classList.add('movies__link')
     div.classList.add('movies-item')
+    div.classList.add('swiper-slide')
     content.classList.add('movies__content')
     content.innerHTML = `<p class='movies__title'>${el.nameRu}</p><p class='movies__subTitle'>${el.year}</p>`
     link.append(img)

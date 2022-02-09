@@ -120,8 +120,10 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: isDev
-            },
+              publicPath: (resourcePath, context) => {
+                return path.relative(path.dirname(resourcePath), context) + '/'
+              },
+            }
           },
           'css-loader'
         ],

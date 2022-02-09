@@ -1,7 +1,13 @@
 .section 
-  .container 
+  .container.container-trendingMovies 
     h2.section__h2 Популярные фильмы
-    .movies.movies-trendingMovies
+    .slider-top
+      .slider-buttons
+        button.swiper-button-prev
+        button.swiper-button-next
+    .movies.swiper-container 
+      .movies-trendingMovies.swiper-wrapper
+     
       //- .movies-item
       //-   a(href="#").movies__link
       //-     img(src=require('../../../img/poster.png'), alt="").movies__img

@@ -16,6 +16,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_content_content__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../modules/content/content */ "./modules/content/content.js");
 /* harmony import */ var _movies__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./movies */ "./js/movies.js");
 /* harmony import */ var _movie__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./movie */ "./js/movie.js");
+/* harmony import */ var _swiper__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./swiper */ "./js/swiper.js");
+
 
 
 
@@ -48,6 +50,56 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_movie_list_movie_list__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/movie_list/movie_list */ "./modules/movie_list/movie_list.js");
 
+
+/***/ }),
+
+/***/ "./js/swiper.js":
+/*!**********************!*\
+  !*** ./js/swiper.js ***!
+  \**********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "../node_modules/swiper/swiper.esm.js");
+/* harmony import */ var swiper_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/css */ "../node_modules/swiper/swiper.min.css");
+/* harmony import */ var swiper_css_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! swiper/css/navigation */ "../node_modules/swiper/modules/navigation/navigation.min.css");
+/* harmony import */ var swiper_css_pagination__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! swiper/css/pagination */ "../node_modules/swiper/modules/pagination/pagination.min.css");
+// core version + navigation, pagination modules:
+ // import Swiper and modules styles
+
+
+
+ // init Swiper:
+// const swiper = new Swiper('.swiper-container', {
+//   // configure Swiper to use modules
+//   modules: [Navigation, Pagination],
+//   loop: true,
+//   // If we need pagination
+//   pagination: {
+//     el: '.swiper-pagination',
+//   },
+//   // Navigation arrows
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+//   // And if we need scrollbar
+//   scrollbar: {
+//     el: '.swiper-scrollbar',
+//   },
+// });
+
+var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".swiper-container", {
+  modules: [swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation, swiper__WEBPACK_IMPORTED_MODULE_0__.Pagination],
+  slidesPerView: 6,
+  slidesPerGroup: 3,
+  spaceBetween: 35,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  }
+});
 
 /***/ }),
 
@@ -281,13 +333,14 @@ getData(link).then(function (data) {
 function showMovies(data) {
   var test = document.querySelector('.movies-trendingMovies');
 
-  for (var i = 0; i < 6; i++) {
+  for (var i = 0; i < 20; i++) {
     var el = data.films[i];
     var img = document.createElement('img');
 
     var _link = document.createElement('a');
 
     var div = document.createElement('div');
+    var content = document.createElement('div');
     img.src = el.posterUrlPreview;
     _link.href = "../movie.html?id=" + el.filmId; // div.addEventListener('click', function() {
     //   document.location = "../movie.html?id=" + el.filmId
@@ -298,8 +351,13 @@ function showMovies(data) {
     _link.classList.add('movies__link');
 
     div.classList.add('movies-item');
+    div.classList.add('swiper-slide');
+    content.classList.add('movies__content');
+    content.innerHTML = "<p class='movies__title'>".concat(el.nameRu, "</p><p class='movies__subTitle'>").concat(el.year, "</p>");
 
     _link.append(img);
+
+    _link.append(content);
 
     div.append(_link);
     test.append(div);
@@ -936,8 +994,8 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["vendors-node_modules_regenerator-runtime_runtime_js"], () => (__webpack_require__("../node_modules/regenerator-runtime/runtime.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_regenerator-runtime_runtime_js"], () => (__webpack_require__("./js/main.js")))
+/******/ 	__webpack_require__.O(undefined, ["vendors-node_modules_swiper_modules_navigation_navigation_min_css-node_modules_swiper_modules-d99b48"], () => (__webpack_require__("../node_modules/regenerator-runtime/runtime.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["vendors-node_modules_swiper_modules_navigation_navigation_min_css-node_modules_swiper_modules-d99b48"], () => (__webpack_require__("./js/main.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

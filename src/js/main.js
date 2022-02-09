@@ -4,7 +4,6 @@ import '../modules/banner/banner'
 import '../modules/content/content'
 import './movies'
 import './movie'
-
-
+import './swiper'
 
 

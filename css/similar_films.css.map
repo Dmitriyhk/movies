@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACL,aAAa,EAAE,KAAK;CACrB",
+    "sources": [
+        "../src/modules/watch_movie/similar_films/similar_films.scss"
+    ],
+    "names": [],
+    "file": "similar_films.css"
+}
