@@ -1,7 +1,6 @@
 @import './genres/genres.scss';
 @import './actor/actor.scss';
 @import './marketing/marketing.scss';
-@import './offer/offer.scss';
 
 .section {
   padding-top: 50px;
@@ -45,21 +44,14 @@
 .movies {
   width: 95%;
   height: 100%;
-  // padding-top: 20px;
   overflow:hidden;
   position: relative;
   padding: 20px;
-  // display: flex;
-  // align-items: center;
-  // justify-content: space-between;
   &-item {
     box-shadow: 0px 0px 0px rgba(44, 176, 249, 0.0);
     transition: .2s ease-in-out box-shadow;
     border-radius: 20px;
-    // flex: 0 0 14%;
     text-align: center;
-
-    // position: relative;
     &:hover {
       box-shadow: 0px 0px 20px rgba(44, 176, 249, 0.5);
       .movies__content {
@@ -80,7 +72,6 @@
     text-decoration: none;
   }
   &__img {
-    
     position: absolute;
     left: 50%;
     top: 50%;
@@ -125,9 +116,6 @@
   border: none;
   left: -2%;
   width: 40px;
-  // color: $bg-gradient;
-  // background: none;
-  // border: none;
   background-image: url(../img/prewBtn.svg);
   background-repeat: no-repeat;
   top: 200px;
@@ -152,6 +140,8 @@
   opacity: 0;
 }
 
+
+
 .slider-buttons {
-  max-width: 1400px;
+  max-width: 1430px;
 }

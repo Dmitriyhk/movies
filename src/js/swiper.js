@@ -37,17 +37,18 @@ import 'swiper/css/pagination';
 // swiperContainerMovies.addEventListener('mouseout', function() {
 //   swiperBtnNext.style.opacity = 0
 // })
-
-
-
-const swiper = new Swiper('.swiper-container', {
-  modules: [Navigation, Pagination],
-  slidesPerView: 6,
-  slidesPerGroup: 3,
-  spaceBetween: 35,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-
-});
+let cc = 1
+let swipers = document.querySelectorAll('.swiper')
+swipers.forEach(el => {
+  const swiper = new Swiper(el, {
+    modules: [Navigation, Pagination],
+    slidesPerView: 6,
+    slidesPerGroup: 3,
+    spaceBetween: 35,
+    navigation: {
+      nextEl: el.previousSibling.firstChild.querySelector('.swiper-button-next'),
+      prevEl: el.previousSibling.firstChild.querySelector('.swiper-button-prev'),
+    },
+  });
+  cc++
+})

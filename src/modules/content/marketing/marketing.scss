@@ -2,16 +2,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 46px;
+  margin: 0 -5px;
   &-item {
- 
+    box-shadow: 0px 0px 0px rgba(44, 176, 249, 0.0);
+    transition: .2s ease-in-out box-shadow;
+    border-radius: 20px;
+    flex: 1 1 auto;
+    margin: 0 5px;
+    &:hover {
+      box-shadow: 0px 0px 20px rgba(44, 176, 249, 0.7);
+    }
   }
   &__link {
     display: flex;
     overflow: hidden;
   }
   &__img {
-    width: 98%;
+    width: 100%;
     border-radius: 20px;
   }
 }

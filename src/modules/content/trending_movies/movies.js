@@ -28,9 +28,6 @@ function showMovies(data) {
     let content = document.createElement('div')
     img.src = el.posterUrlPreview
     link.href = "../movie.html?id=" + el.filmId
-    // div.addEventListener('click', function() {
-    //   document.location = "../movie.html?id=" + el.filmId
-    // })
     img.classList.add('movies__img')
     link.classList.add('movies__link')
     div.classList.add('movies-item')

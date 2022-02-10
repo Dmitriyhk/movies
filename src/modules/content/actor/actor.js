@@ -44,20 +44,22 @@ async function getActor(url) {
 
 function showActor(data) {
   const test = document.querySelector('.movies-premier')
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 20; i++) {
     let el = data.items[i]
     let img = document.createElement('img')
     let link = document.createElement('a')
     let div = document.createElement('div')
+    let content = document.createElement('div')
     img.src = el.posterUrl
     link.href = "../movie.html?id=" + el.kinopoiskId
-    // div.addEventListener('click', function() {
-    //   document.location = "../movie.html?id=" + el.kinopoiskId
-    // })
     img.classList.add('movies__img')
     link.classList.add('movies__link')
     div.classList.add('movies-item')
+    div.classList.add('swiper-slide')
+    content.classList.add('movies__content')
+    content.innerHTML = `<p class='movies__title'>${el.nameRu}</p><p class='movies__subTitle'>${el.year}</p>`
     link.append(img)
+    link.append(content)
     div.append(link)
     test.append(div)
   }

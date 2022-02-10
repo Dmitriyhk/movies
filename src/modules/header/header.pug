@@ -5,22 +5,21 @@ header
     nav 
       ul.nav 
         li.nav-item 
-          a(href="#").nav-link.active Home 
+          a(href="#").nav-link.active Главная 
         li.nav-item 
-          a(href="movieList.html").nav-link Movies
+          a(href="movieList.html").nav-link Фильмы
         li.nav-item 
-          a(href="#").nav-link Serials
+          a(href="#").nav-link Телешоу
         li.nav-item 
-          a(href="#").nav-link Home 
+          a(href="#").nav-link Сейчас в кино
     ul.control
       li.control-item 
         //- button.control-btn.control-btn_search
         form.control-form
           input(type="text" placeholder="Поиск").control__search
       li.control-item 
-        button.control-btn.control-btn_notification
-      li.toggle 
-        img(src=require('../../img/sun.svg'), alt="").toggle-icon.toggle-icon__moon
-        img(src=require('../../img/moon.svg'), alt="").toggle-icon.toggle-icon__sun
-        .toggle-ball
-        //- button.control-btn.control-btn_createacc
+        .toggle 
+          img(src=require('../../img/sun.svg'), alt="").toggle-icon.toggle-icon__moon
+          img(src=require('../../img/moon.svg'), alt="").toggle-icon.toggle-icon__sun
+          .toggle-ball
+          //- button.control-btn.control-btn_createacc
