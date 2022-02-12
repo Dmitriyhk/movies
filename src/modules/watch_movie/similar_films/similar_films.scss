@@ -1,3 +1,64 @@
-.test1 {
-  margin-bottom: 100px;
+
+.movies-recomendation {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  &-item {
+    box-shadow: 0px 0px 20px rgba(44, 176, 249, 0.0);
+    transition: .2s ease box-shadow;
+    border-radius: 20px;
+    flex: 0 0 14%;
+    text-align: center;
+    &:hover {
+      box-shadow: 0px 0px 20px rgba(44, 176, 249, 0.5);
+      .movies-recomendation__content {
+        opacity: 1;
+      }
+      .movies-recomendation__img {
+        height: 105%;
+      }
+    }
+  }
+  &__link {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 309px;
+      display: block;
+      border-radius: 20px;
+      text-decoration: none;
+  }
+  &__img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      height: 100%;
+      text-align: center;
+      transition: 0.5s all ease-in-out;
+  }
+  &__content {
+        background-color: rgba(65, 61, 61, 0.5);
+        position: absolute;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        border-radius: 20px;
+        opacity: 0;
+        transition: 0.5s all ease-in-out;
+  }
+  &__title {
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: $white;
+  }
+  &__subTitle {
+    text-align: center;
+    padding: 10px;
+    font-weight: 800;
+    color: $white;
+  }
 }

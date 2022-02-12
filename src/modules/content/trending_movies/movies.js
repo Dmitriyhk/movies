@@ -1,3 +1,5 @@
+
+
 const getData = (url) =>
   new Promise((resolve, reject) =>
   fetch(url, {
@@ -39,8 +41,8 @@ function showMovies(data) {
     div.append(link)
     test.append(div)
   }
-}
+
 
 
   
-
+}

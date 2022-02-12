@@ -1,19 +1,55 @@
 import 'regenerator-runtime/runtime'
 
 if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] == 'movieList') {
+  const ID_GENRES = {
+    'биография': 8,
+    'боевик': 11,
+    'вестерн': 10,
+    'военный': 14,
+    'детектив': 5,
+    'детский': 33,
+    'для взрослых': 28,
+    'документальный': 22,
+    'драма': 2,
+    'игра': 31,
+    'история': 15,
+    'комедия': 13,
+    'концерт': 27,
+    'короткометражка': 23,
+    'криминал': 3,
+    'мелодрама': 4,
+    'музыка': 16,
+    'мультфильм': 24,
+    'аниме': 24,
+    'мюзикл': 20,
+    'новости': 26,
+    'приключения': 7,
+    'реальное ТВ': 30,
+    'семейный': 19,
+    'спорт': 21,
+    'ток-шоу': 32,
+    'триллер': 1,
+    'ужасы': 17,
+    'фантастика': 6,
+    'фильм-нуар': 9,
+    'фэнтези': 12,
+    'церемония': 29,
+    }
 
   const API_KEY = "757f6afa-954c-4484-9629-04d0c3a9a842"
   let api_url
-  if (location.href.split('?')[1]) {
+  let pageNumber = 1
+  if (location.href.split('?')[1] === undefined) {
     api_url = 
-    'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=' + location.href.split("?")[1].split("=")[1]
-  } else {
+    `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=${pageNumber}`
+  } else if (location.href.split('?')[1].split('=')[0] === 'id') {
     api_url = 
-    'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=1'
-  }
-  const test = 'https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=20&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1'
+    `https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${location.href.split("?")[1].split("=")[1]}&page=${pageNumber}`
+  } else if (location.href.split('?')[1].split('=')[0] === 'genre') {
+    api_url = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${ID_GENRES[decodeURI(location.href.split("?")[1].split("=")[1])]}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=${pageNumber}`
+  } 
 
-  getMovies(test)
+  getMovies(api_url)
 
   async function getMovies(url) {
     const resp = await fetch(url, {
@@ -23,64 +59,92 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
       }
     })
     const respData = await resp.json()
-    showMovies(respData)
+    if(respData.items) {
+      showMoviesByGenre(respData)
+    } else {
+      showMoviesById(respData)
+    } 
   }
 
-  function showMovies(data) {
-    let obj = {}
-    for(let elem of data.items) {
-      for(let elum of elem.genres) {
-        let counter = 1
-        if (obj[elum.genre]) {
-          obj[elum.genre]++
-        } else {
-          obj[elum.genre] = 1
-        }
+  function showMoviesById(data) {
+    const moviesEl = document.querySelector('.movieList')
+    data.films.forEach(movie => {
+      const movieEl = document.createElement('div')
+      movieEl.classList.add('movie')
+      movieEl.innerHTML = `
+        <div class="movie__cover-inner">
+        <a href="movie.html?id=${movie.filmId}" class="movie__link"> 
+          <img
+            src="${movie.posterUrlPreview}"
+            class="movie__img"
+            alt="${movie.nameRu}"
+          />
+        </a>
+        </div>
+        <div class="movie-info">
+          <div class="movie-info__title">${movie.nameRu}</div>
+          <div class="movie-info__genre">${movie.genres.map(
+            (genre) => `<a href="movieList.html?genre=${genre.genre}" class="movie-info__genre-link"> ${genre.genre}</a>`
+          )}</div>
+          ${
+            setRating(movie.rating) &&
+            `
+          <div class="movie-info__average movie-info__average--${getClassByRate(
+            movie.rating
+          )}">${movie.rating}</div>
+          `
+          }
+        </div>`
+        moviesEl.append(movieEl)
+    }) 
+  }
+
+  function showMoviesByGenre(data) {
+    const moviesEl = document.querySelector('.movieList')
+    data.items.forEach(movie => {
+      if (movie.nameRu !== null) {
+        console.log(movie)
+        const movieEl = document.createElement('div')
+        movieEl.classList.add('movie')
+        movieEl.innerHTML = `
+          <div class="movie__cover-inner">
+          <a href="movie.html?id=${movie.kinopoiskId}" class="movie__link"> 
+            <img
+              src="${movie.posterUrlPreview}"
+              class="movie__img"
+              alt="${movie.nameRu}"
+            />
+          </a>
+          </div>
+          <div class="movie-info">
+            <div class="movie-info__title">${movie.nameRu}</div>
+            <div class="movie-info__genre">${movie.genres.map(
+              (genre) => `<a href="movieList.html?genre=${genre.genre}" class="movie-info__genre-link"> ${genre.genre}</a>`
+            )}</div>
+            ${
+              setRating(movie.rating) &&
+              `
+            <div class="movie-info__average movie-info__average--${getClassByRate(
+              movie.rating
+            )}">${movie.rating}</div>
+            `
+            }
+          </div>`
+          moviesEl.append(movieEl)
       }
-    }
-    console.log(obj)
-    // const moviesEl = document.querySelector('.movieList')
-
-    // data.films.forEach(movie => {
-    //   const movieEl = document.createElement('div')
-    //   movieEl.classList.add('movie')
-    //   console.log(movie.genres)
-    //   movieEl.innerHTML = `
-    //     <div class="movie__cover-inner">
-    //     <a href="movie.html?id=${movie.filmId}" class="movie__link"> 
-    //       <img
-    //         src="${movie.posterUrlPreview}"
-    //         class="movie__img"
-    //         alt="${movie.nameRu}"
-    //       />
-    //     </a>
-    //     </div>
-    //     <div class="movie-info">
-    //       <div class="movie-info__title">${movie.nameRu}</div>
-    //       <div class="movie-info__genre">${movie.genres.map(
-    //         (genre) => `<a href="movieList.html?id=${genre.genre}" class="movie-info__genre-link"> ${genre.genre}</a>`
-    //       )}</div>
-    //       ${
-    //         setRating(movie.rating) &&
-    //         `
-    //       <div class="movie-info__average movie-info__average--${getClassByRate(
-    //         movie.rating
-    //       )}">${movie.rating}</div>
-    //       `
-    //       }
-    //     </div>`
-    //     moviesEl.append(movieEl)
-    // })
-    // function getClassByRate(vote) {
-    //   if (vote >= 7 && vote <= 10) {
-    //     return "green";
-    //   } else if (vote >= 5) {
-    //     return "orange";
-    //   } else if (vote > 0) {
-    //     return "red";
-    //   }
-    // }
+    }) 
   }
+
+  function getClassByRate(vote) {
+    if (vote >= 7 && vote <= 10) {
+      return "green";
+    } else if (vote >= 5) {
+      return "orange";
+    } else if (vote > 0) {
+      return "red";
+    }
+  }
+
   function setRating(vote) {
     if (vote <=10 && vote >= 0) {
       return true
@@ -88,28 +152,5 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
       return ''
     }
   }
-
-
-
-  // let id = window.location.href.split("?")[1].split("=")[1];
-
-  // const getData = (url) =>
-  //   new Promise((resolve, reject) =>
-  //     fetch(url, {
-  //       method: "GET",
-  //       headers: {
-  //         "X-API-KEY": "757f6afa-954c-4484-9629-04d0c3a9a842",
-  //         "Content-Type": "application/json",
-  //       },
-  //     })
-  //       .then((response) => response.json())
-  //       .then((json) => resolve(json))
-  //       .catch((error) => reject(error))
-  //   );
-  // let link = "https://kinopoiskapiunofficial.tech/api/v2.2/films/" + id;
-
-  // getData(link)
-  //   .then((data) => showMovies(data))
-  //   .catch((error) => console.log(error.message));
 
 }

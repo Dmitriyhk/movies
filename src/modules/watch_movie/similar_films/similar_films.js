@@ -23,25 +23,33 @@ if (
     .catch((error) => console.log(error.message));
 
   function showMovies(data) {
-    console.log(data);
-    const test = document.querySelector(".test1");
-    for (let i = 0; i < data.total; i++) {
-      let el = data.items[i];
-      console.log(el);
-      let img = document.createElement("img");
-      let link = document.createElement("a");
-      let div = document.createElement("div");
-      img.src = el.posterUrlPreview;
-      link.href = "../movie.html?id=" + el.filmId;
-      div.addEventListener("click", function () {
-        document.location = "../movie.html?id=" + el.filmId;
-      });
-      img.classList.add("movies__img");
-      link.classList.add("movies__link");
-      div.classList.add("movies-item");
-      link.append(img);
-      div.append(link);
-      test.append(div);
+    const test = document.querySelector(".movies-recomendation");
+    let counter = 0
+    if(data.items.length <= 6 && data.items.length > 0) {
+      counter = data.items.length
+    } else if(data.items.length === 0) {
+      console.log('проверка то проходит ептиль')
+      document.querySelector('.container-recomendation').hidden = true
+    } else {
+      counter = 6
+    }
+    for(let i = 0; i < counter;i++) {
+      let el = data.items[i]
+      let img = document.createElement('img')
+      let link = document.createElement('a')
+      let div = document.createElement('div')
+      let content = document.createElement('div')
+      img.src = el.posterUrlPreview
+      link.href = "../movie.html?id=" + el.filmId
+      img.classList.add('movies-recomendation__img')
+      link.classList.add('movies-recomendation__link')
+      div.classList.add('movies-recomendation-item')
+      content.classList.add('movies-recomendation__content')
+      content.innerHTML = `<p class='movies__title'>${el.nameRu}</p>`
+      link.append(img)
+      link.append(content)
+      div.append(link)
+      test.append(div)
     }
   }
 }

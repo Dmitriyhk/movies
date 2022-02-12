@@ -87,15 +87,18 @@
     border-radius: 5px;
     outline: none; }
   .control-btn {
-    background-color: transparent;
+    background-color: #fff;
     border: none;
-    display: block;
-    background-size: cover;
+    position: relative;
+    background-size: 78%;
     background-repeat: no-repeat; }
     .control-btn_search {
+      border-radius: 5px;
       background-image: url(../img/search.svg);
-      width: 18px;
-      height: 18px; }
+      width: 30px;
+      height: 30px;
+      right: 32px;
+      top: 10px; }
     .control-btn_notification {
       background-image: url(../img/notification.svg);
       width: 22px;
@@ -107,6 +110,7 @@
       box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.8); }
 
 .toggle {
+  margin-right: 50px;
   width: 40px;
   height: 20px;
   background-color: white;
@@ -195,7 +199,8 @@
     width: 16px;
     height: 16px;
     background-image: url(../img/star.svg);
-    margin-left: 10px; }
+    background-repeat: no-repeat;
+    margin-left: 7px; }
 
 .banner__text {
   font-size: 18px;
@@ -240,6 +245,7 @@
   text-align: center;
   margin-top: 48px; }
   .genres-item {
+    text-decoration: none;
     flex: 0 0 23.6%;
     border-radius: 20px;
     padding: 48px 10px 34px;
@@ -248,20 +254,36 @@
     color: #fff; }
     .genres-item__romance {
       background: linear-gradient(109.31deg, #FD093F 2.4%, #F383F1 100%); }
+      .genres-item__romance:hover {
+        background: linear-gradient(109.31deg, #F383F1 2.4%, #FD093F 100%); }
     .genres-item__drama {
       background: linear-gradient(114.5deg, #0FFFDA 2.22%, #3CDB77 68.84%); }
+      .genres-item__drama:hover {
+        background: linear-gradient(114.5deg, #3CDB77 2.22%, #0FFFDA 68.84%); }
     .genres-item__historical {
       background: linear-gradient(109.31deg, #B936FF 2.4%, #57DEDA 100%); }
+      .genres-item__historical:hover {
+        background: linear-gradient(109.31deg, #57DEDA 2.4%, #B936FF 100%); }
     .genres-item__action {
       background: linear-gradient(109.31deg, #FD093F 2.4%, #FB1378 2.41%, #FCCB1A 100%); }
+      .genres-item__action:hover {
+        background: linear-gradient(109.31deg, #FCCB1A 2.4%, #FD093F 100%); }
     .genres-item__sci-fi {
       background: linear-gradient(109.31deg, #FF6472 2.4%, #FDA75D 100%); }
+      .genres-item__sci-fi:hover {
+        background: linear-gradient(109.31deg, #FDA75D 2.4%, #FF6472 100%); }
     .genres-item__horror {
       background: linear-gradient(110.16deg, #13547A 2.37%, #80D0C7 96.77%); }
+      .genres-item__horror:hover {
+        background: linear-gradient(110.16deg, #80D0C7 2.37%, #13547A 96.77%); }
     .genres-item__comedy {
       background: linear-gradient(109.93deg, #FFF77B 2.37%, #FFBF42 50%); }
+      .genres-item__comedy:hover {
+        background: linear-gradient(109.93deg, #FFBF42 2.37%, #FFF77B 100%); }
     .genres-item__documentary {
       background: linear-gradient(109.31deg, #1FA2FF 2.4%, #1FA2FF 2.41%, #1F535C 97.46%); }
+      .genres-item__documentary:hover {
+        background: linear-gradient(109.31deg, #1F535C 2.4%, #1FA2FF 97.46%); }
   .genres__title {
     font-size: 28px;
     font-weight: 700;
@@ -271,47 +293,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 46px; }
+  margin: 0 -5px; }
+  .marketing-item {
+    box-shadow: 0px 0px 0px rgba(44, 176, 249, 0);
+    transition: .2s ease-in-out box-shadow;
+    border-radius: 20px;
+    flex: 1 1 auto;
+    margin: 0 5px; }
+    .marketing-item:hover {
+      box-shadow: 0px 0px 20px rgba(44, 176, 249, 0.7); }
   .marketing__link {
     display: flex;
     overflow: hidden; }
   .marketing__img {
-    width: 98%;
+    width: 100%;
     border-radius: 20px; }
-
-.offer {
-  max-width: 1224px;
-  margin: 70px auto 121px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-image: url(../img/offer.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 71px 57px;
-  border-radius: 20px;
-  box-sizing: border-box; }
-  .offer__title {
-    font-size: 64px;
-    font-weight: 700;
-    max-width: 800px;
-    margin: 0;
-    line-height: 1.05; }
-  .offer__btn {
-    margin-right: 93px;
-    border: none;
-    background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
-    border-radius: 100px;
-    color: #fff;
-    font-family: "Mulish", sans-serif;
-    font-weight: 800;
-    font-size: 16px;
-    padding: 15px 20px;
-    text-align: center;
-    cursor: pointer;
-    transition: .2s ease box-shadow; }
-    .offer__btn:hover {
-      box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.8); }
 
 .section {
   padding-top: 50px; }
@@ -348,11 +344,11 @@
       box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.8); }
 
 .movies {
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 55%;
   overflow: hidden;
   position: relative;
-  padding: 20px 35px; }
+  padding: 20px; }
   .movies-item {
     box-shadow: 0px 0px 0px rgba(44, 176, 249, 0);
     transition: .2s ease-in-out box-shadow;
@@ -403,22 +399,34 @@
     color: #fff; }
 
 .swiper-button-prev {
-  left: 0;
-  color: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
-  background: none;
+  position: relative;
+  background-color: transparent;
   border: none;
-  background-image: url(../img/prewBtn.svg); }
+  left: -2%;
+  width: 40px;
+  background-image: url(../img/prewBtn.svg);
+  background-repeat: no-repeat;
+  top: 200px; }
   .swiper-button-prev::after {
     display: none; }
 
 .swiper-button-next {
+  position: relative;
+  background-color: transparent;
+  width: 40px;
   background-image: url(../img/nextBtn.svg);
-  right: 0;
-  color: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
-  background: none;
+  background-repeat: no-repeat;
+  left: 100%;
+  top: 180px;
   border: none; }
   .swiper-button-next::after {
     display: none; }
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+  opacity: 0; }
+
+.slider-buttons {
+  max-width: 1430px; }
 
 .container-item {
   display: flex;
@@ -493,11 +501,9 @@
   height: 500px;
   margin: 100px auto 50px; }
 
-.test1 {
-  margin-bottom: 100px; }
-
 .footer {
-  background-color: #101012; }
+  background-color: #101012;
+  margin-top: 50px; }
   .footer__inner {
     display: flex;
     justify-content: space-between;
@@ -515,18 +521,6 @@
     color: #C2C2C2;
     text-decoration: none;
     position: relative; }
-    .footer__link::after {
-      display: block;
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 2;
-      width: 100%;
-      height: 2px;
-      opacity: 0;
-      background: linear-gradient(316.53deg, #26FFF2 13.2%, #326CFF 71.54%);
-      transition: opacity .2s linear; }
     .footer__link:hover {
       color: #fff; }
     .footer__link:hover::after {

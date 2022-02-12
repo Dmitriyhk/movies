@@ -1,4 +1,5 @@
 import 'regenerator-runtime/runtime'
+
 const API_KEY = "757f6afa-954c-4484-9629-04d0c3a9a842"
 const API_URL_ACTOR = 'https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SHOW&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=1'
 
@@ -25,7 +26,7 @@ function showActor(data) {
     let div = document.createElement('div')
     let content = document.createElement('div')
     img.src = el.posterUrlPreview
-    link.href = "../movie.html?id=" + el.filmId
+    link.href = "../movie.html?id=" + el.kinopoiskId
     img.classList.add('movies__img')
     link.classList.add('movies__link')
     div.classList.add('movies-item')

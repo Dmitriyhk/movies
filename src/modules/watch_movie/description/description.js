@@ -34,21 +34,47 @@ if (
   const movieText = document.querySelector(".description__text");
 
   function showMovies(data) {
-    console.log(data);
-    movieImg.src = data.posterUrlPreview;
-    movieName.innerHTML = data.nameRu;
-    movieCountry.innerHTML = data.countries[0].country;
-    movieYear.innerHTML = data.year;
-    movieTime.innerHTML = data.filmLength;
-    movieAge.innerHTML = data.ratingAgeLimits.replace(/[^\d]/g, "") + "+";
-    data.genres.forEach((el) => {
-      let linkGenre = document.createElement("a");
-      linkGenre.href = "#";
-      linkGenre.classList.add("description-ganres__ganre");
-      linkGenre.innerHTML = el.genre;
-      movieGanres.append(linkGenre);
-    });
-    movieRating.innerHTML = data.ratingKinopoisk;
-    movieText.innerHTML = data.description;
+    console.log(data)
+    movieImg.src = data.posterUrlPreview
+    movieName.innerHTML = data.nameRu
+    movieCountry.innerHTML = data.countries[0].country
+    movieYear.innerHTML = data.year
+    movieTime.innerHTML = getTimeFromMins(data.filmLength)
+    if (data.ratingAgeLimits) {
+      movieAge.innerHTML = data.ratingAgeLimits.replace(/[^\d]/g, "") + "+"
+    } else {
+      document.querySelector('.description-info__age').hidden = true
+    }
+    
+    console.log('ffddfdf')
+    if (data.genres) {
+      console.log('ffddfdf')
+      data.genres.forEach((el) => {
+        let linkGenre = document.createElement("a")
+        linkGenre.href = "#"
+        linkGenre.classList.add("description-ganres__ganre")
+        linkGenre.innerHTML = el.genre
+        movieGanres.append(linkGenre)
+      });
+    } else {
+      console.log('ffffff')
+      document.querySelector('.description-ganres__title').hidden = true
+    }
+    if (data.ratingKinopoisk) {
+      movieRating.innerHTML = data.ratingKinopoisk
+    } else {
+      document.querySelector('.description-rating ').hidden = true
+    }
+    movieRating.innerHTML = data.ratingKinopoisk
+    movieText.innerHTML = data.description
+  }
+  function getTimeFromMins(mins) {
+    let hours = Math.floor(mins / 60)
+    let minutes = mins % 60
+    if (hours === 0) {
+      return minutes + ' мин'
+    }
+    return hours + 'ч ' + minutes + 'мин'
   }
 }
+

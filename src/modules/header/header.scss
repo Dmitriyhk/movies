@@ -72,15 +72,18 @@
     outline: none;
   }
   &-btn {
-    background-color: transparent;
+    background-color: $white;
     border: none;
-    display: block;
-    background-size: cover;
+    position: relative;
+    background-size: 78%;
     background-repeat: no-repeat;
     &_search {
+      border-radius: 5px;
       background-image: url(../img/search.svg);
-      width: 18px;
-      height: 18px;
+      width: 30px;
+      height: 30px;
+      right: 32px;
+      top: 10px;
     }
     &_notification {
       background-image: url(../img/notification.svg);

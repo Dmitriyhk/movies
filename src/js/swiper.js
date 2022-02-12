@@ -37,7 +37,6 @@ import 'swiper/css/pagination';
 // swiperContainerMovies.addEventListener('mouseout', function() {
 //   swiperBtnNext.style.opacity = 0
 // })
-let cc = 1
 let swipers = document.querySelectorAll('.swiper')
 swipers.forEach(el => {
   const swiper = new Swiper(el, {
@@ -50,5 +49,5 @@ swipers.forEach(el => {
       prevEl: el.previousSibling.firstChild.querySelector('.swiper-button-prev'),
     },
   });
-  cc++
 })
+
