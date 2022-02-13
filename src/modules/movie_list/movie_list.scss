@@ -1,12 +1,58 @@
 .container-movie {
   max-width: 1200px;
   margin: 0 auto;
+  &__btnUp {
+    cursor: pointer;
+    position: sticky;
+    left: 90%;
+    bottom: 5%;
+    background-color: transparent;
+    background-image: url(../img/up.svg);
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: .2s ease box-shadow;
+    &:hover {
+      box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.4);
+    }
+    
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   width: 14px;
+    //   height: 18px;
+      
+    //   background-repeat: no-repeat;
+    //   block-size: cover;
+    //   position: absolute;
+    //   top: calc(50% - 9px);
+    //   left: 30px;
+    //   right: 0;
+    // }
+  }
+      
 }
 
 .movieList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  &-btn {
+    cursor: pointer;
+    border: none;
+    background: $bg-gradient;
+    border-radius: 100px;
+    color: $white;
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 15px 34px;
+    transition: .2s ease box-shadow;
+    &:hover {
+      box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.8);
+    }
+  }
 }
 
 .movie {

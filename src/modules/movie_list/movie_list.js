@@ -35,20 +35,22 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
     'фэнтези': 12,
     'церемония': 29,
     }
-
+    let movieListBtn = document.querySelector('.movieList-btn')
   const API_KEY = "757f6afa-954c-4484-9629-04d0c3a9a842"
   let api_url
+  let pagesCount
   let pageNumber = 1
   if (location.href.split('?')[1] === undefined) {
     api_url = 
-    `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page=${pageNumber}`
+    'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page='
   } else if (location.href.split('?')[1].split('=')[0] === 'id') {
     api_url = 
-    `https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${location.href.split("?")[1].split("=")[1]}&page=${pageNumber}`
+    `https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${location.href.split("?")[1].split("=")[1]}&page=`
   } else if (location.href.split('?')[1].split('=')[0] === 'genre') {
-    api_url = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${ID_GENRES[decodeURI(location.href.split("?")[1].split("=")[1])]}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=${pageNumber}`
-  } 
-
+    api_url = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${ID_GENRES[decodeURI(location.href.split("?")[1].split("=")[1])]}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=`
+  } else if (location.href.split('?')[1].split('=')[0] === 'tv') {
+    api_url = 'https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SHOW&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page='
+  }
   getMovies(api_url)
 
   async function getMovies(url) {
@@ -59,51 +61,60 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
       }
     })
     const respData = await resp.json()
+    console.log(respData)
     if(respData.items) {
       showMoviesByGenre(respData)
+      pagesCount = respData.totalPages
     } else {
       showMoviesById(respData)
+      pagesCount = respData.pagesCount
+      console.log(pageCount)
     } 
+    if (pageNumber >= pagesCount) {
+      testing288.hidden = true
+    }
   }
 
   function showMoviesById(data) {
     const moviesEl = document.querySelector('.movieList')
     data.films.forEach(movie => {
-      const movieEl = document.createElement('div')
-      movieEl.classList.add('movie')
-      movieEl.innerHTML = `
-        <div class="movie__cover-inner">
-        <a href="movie.html?id=${movie.filmId}" class="movie__link"> 
-          <img
-            src="${movie.posterUrlPreview}"
-            class="movie__img"
-            alt="${movie.nameRu}"
-          />
-        </a>
-        </div>
-        <div class="movie-info">
-          <div class="movie-info__title">${movie.nameRu}</div>
-          <div class="movie-info__genre">${movie.genres.map(
-            (genre) => `<a href="movieList.html?genre=${genre.genre}" class="movie-info__genre-link"> ${genre.genre}</a>`
-          )}</div>
-          ${
-            setRating(movie.rating) &&
+      if (movie.nameRu !== null && movie.nameRu) {
+        const movieEl = document.createElement('div')
+        movieEl.classList.add('movie')
+        movieEl.innerHTML = `
+          <div class="movie__cover-inner">
+          <a href="movie.html?id=${movie.filmId}" class="movie__link"> 
+            <img
+              src="${movie.posterUrlPreview}"
+              class="movie__img"
+              alt="${movie.nameRu}"
+            />
+          </a>
+          </div>
+          <div class="movie-info">
+            <div class="movie-info__title">${movie.nameRu}</div>
+            <div class="movie-info__genre">${movie.genres.map(
+              (genre) => `<a href="movieList.html?genre=${genre.genre}" class="movie-info__genre-link"> ${genre.genre}</a>`
+            )}</div>
+            ${
+              setRating(movie.rating) &&
+              `
+            <div class="movie-info__average movie-info__average--${getClassByRate(
+              movie.rating
+            )}">${movie.rating}</div>
             `
-          <div class="movie-info__average movie-info__average--${getClassByRate(
-            movie.rating
-          )}">${movie.rating}</div>
-          `
-          }
-        </div>`
-        moviesEl.append(movieEl)
+            }
+          </div>`
+          moviesEl.append(movieEl)
+      }
     }) 
+  
   }
 
   function showMoviesByGenre(data) {
     const moviesEl = document.querySelector('.movieList')
     data.items.forEach(movie => {
-      if (movie.nameRu !== null) {
-        console.log(movie)
+      if (movie.nameRu !== null && movie.nameRu) {
         const movieEl = document.createElement('div')
         movieEl.classList.add('movie')
         movieEl.innerHTML = `
@@ -152,5 +163,12 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
       return ''
     }
   }
-
+  
+  movieListBtn.addEventListener('click', function() {
+    pageNumber++
+    let newUrl = api_url + pageNumber
+  
+    getMovies(newUrl)
+  
+  })
 }

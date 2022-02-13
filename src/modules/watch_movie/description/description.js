@@ -46,24 +46,22 @@ if (
       document.querySelector('.description-info__age').hidden = true
     }
     
-    console.log('ffddfdf')
+
     if (data.genres) {
-      console.log('ffddfdf')
       data.genres.forEach((el) => {
         let linkGenre = document.createElement("a")
-        linkGenre.href = "#"
+        linkGenre.href = `movieList.html?genre=${el.genre}`
         linkGenre.classList.add("description-ganres__ganre")
         linkGenre.innerHTML = el.genre
         movieGanres.append(linkGenre)
       });
     } else {
-      console.log('ffffff')
       document.querySelector('.description-ganres__title').hidden = true
     }
     if (data.ratingKinopoisk) {
       movieRating.innerHTML = data.ratingKinopoisk
     } else {
-      document.querySelector('.description-rating ').hidden = true
+      document.querySelector('.description-rating').style.opacity = 0
     }
     movieRating.innerHTML = data.ratingKinopoisk
     movieText.innerHTML = data.description

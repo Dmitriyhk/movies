@@ -1,5 +1,5 @@
 @import './genres/genres.scss';
-@import './actor/actor.scss';
+@import './cinema/cinema.scss';
 @import './marketing/marketing.scss';
 
 .section {
@@ -22,7 +22,8 @@
       top: calc(50% - 18px);
     }
   }
-  &__btn {
+  &__link {
+    text-decoration: none;
     border: none;
     background: $bg-gradient;
     border-radius: 100px;
@@ -31,9 +32,6 @@
     font-weight: 800;
     font-size: 16px;
     padding: 15px 34px;
-    text-align: center;
-    margin-top: 30px;
-    cursor: pointer;
     transition: .2s ease box-shadow;
     &:hover {
       box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.8);
@@ -46,7 +44,7 @@
   height: 55%;
   overflow:hidden;
   position: relative;
-  padding: 20px;
+  padding: 10px 10px 40px;
   &-item {
     box-shadow: 0px 0px 0px rgba(44, 176, 249, 0.0);
     transition: .2s ease-in-out box-shadow;

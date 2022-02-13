@@ -1,6 +1,6 @@
 import './trending_movies/movies'
 import './trending_twshows/twshows'
 import './genres/genres'
-import './actor/actor'
+import './cinema/cinema'
 import './marketing/marketing'
 import './offer/offer'
