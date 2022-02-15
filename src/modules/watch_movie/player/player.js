@@ -13,5 +13,4 @@ if (
   div.dataset.kinopoisk = id;
   player.append(div);
   player.append(script);
-  console.log(div);
 }

@@ -5,18 +5,15 @@ header
     nav 
       ul.nav 
         li.nav-item 
-          a(href="#").nav-link.active Главная 
+          a(href="/index.html").nav-link Главная 
         li.nav-item 
           a(href="movieList.html").nav-link Фильмы
         li.nav-item 
-          a(href="#").nav-link Телешоу
-        li.nav-item 
-          a(href="#").nav-link Сейчас в кино
+          a(href="movieList.html?tv").nav-link Телешоу
     ul.control
       li.control-item 
         form.control-form
           input(type="text" placeholder="Поиск").control__search
-          button().control-btn.control-btn_search
       li.control-item 
         .toggle 
           img(src=require('../../img/sun.svg'), alt="").toggle-icon.toggle-icon__moon

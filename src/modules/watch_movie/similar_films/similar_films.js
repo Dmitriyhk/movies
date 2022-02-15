@@ -28,7 +28,6 @@ if (
     if(data.items.length <= 6 && data.items.length > 0) {
       counter = data.items.length
     } else if(data.items.length === 0) {
-      console.log('проверка то проходит ептиль')
       document.querySelector('.container-recomendation').hidden = true
     } else {
       counter = 6

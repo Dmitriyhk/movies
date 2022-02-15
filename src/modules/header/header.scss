@@ -71,32 +71,6 @@
     border-radius: 5px;
     outline: none;
   }
-  &-btn {
-    background-color: $white;
-    border: none;
-    position: relative;
-    background-size: 78%;
-    background-repeat: no-repeat;
-    &_search {
-      border-radius: 5px;
-      background-image: url(../img/search.svg);
-      width: 30px;
-      height: 30px;
-      right: 32px;
-      top: 10px;
-    }
-    &_notification {
-      background-image: url(../img/notification.svg);
-      width: 22px;
-      height: 24px;
-    }
-    &_createacc {
-      background-image: url(../img/createAcc.svg);
-      width: 18px;
-      height: 20px;
-      box-shadow: 0px 4px 50px rgba(50, 108, 255, 0.8);
-    }
-  }
 }
 
 .toggle {
@@ -129,6 +103,6 @@
 }
 
 .toggle-ball.active{
-  background-color: white;
+  background-color: $white;
   transform: translateX(-20px);
 }

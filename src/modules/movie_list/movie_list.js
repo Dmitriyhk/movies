@@ -1,4 +1,4 @@
-import 'regenerator-runtime/runtime'
+import { elementScrollIntoView } from "seamless-scroll-polyfill";
 
 if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] == 'movieList') {
   const ID_GENRES = {
@@ -35,23 +35,30 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
     'фэнтези': 12,
     'церемония': 29,
     }
-    let movieListBtn = document.querySelector('.movieList-btn')
+  const movieListBtn = document.querySelector('.movieList-btn')
   const API_KEY = "757f6afa-954c-4484-9629-04d0c3a9a842"
-  let api_url
+  const blockLoading = document.querySelector('.block-loading')
+  let apiUrl
   let pagesCount
   let pageNumber = 1
+  if (localStorage.getItem('nightMode') == 2) {
+    blockLoading.style.backgroundColor = '#dddddd'
+  } else {
+    blockLoading.style.backgroundColor = '#000'
+  }
   if (location.href.split('?')[1] === undefined) {
-    api_url = 
+    apiUrl = 
     'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_100_POPULAR_FILMS&page='
   } else if (location.href.split('?')[1].split('=')[0] === 'id') {
-    api_url = 
+    apiUrl = 
     `https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?keyword=${location.href.split("?")[1].split("=")[1]}&page=`
   } else if (location.href.split('?')[1].split('=')[0] === 'genre') {
-    api_url = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${ID_GENRES[decodeURI(location.href.split("?")[1].split("=")[1])]}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=`
+    apiUrl = `https://kinopoiskapiunofficial.tech/api/v2.2/films?genres=${ID_GENRES[decodeURI(location.href.split("?")[1].split("=")[1])]}&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page=`
   } else if (location.href.split('?')[1].split('=')[0] === 'tv') {
-    api_url = 'https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SHOW&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page='
+    apiUrl = 'https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=TV_SHOW&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&page='
   }
-  getMovies(api_url)
+
+  getMovies(apiUrl)
 
   async function getMovies(url) {
     const resp = await fetch(url, {
@@ -61,17 +68,15 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
       }
     })
     const respData = await resp.json()
-    console.log(respData)
     if(respData.items) {
       showMoviesByGenre(respData)
       pagesCount = respData.totalPages
     } else {
       showMoviesById(respData)
       pagesCount = respData.pagesCount
-      console.log(pageCount)
     } 
     if (pageNumber >= pagesCount) {
-      testing288.hidden = true
+      movieListBtn.hidden = true
     }
   }
 
@@ -108,9 +113,9 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
           moviesEl.append(movieEl)
       }
     }) 
-  
+    blockLoading.hidden = true
   }
-
+  
   function showMoviesByGenre(data) {
     const moviesEl = document.querySelector('.movieList')
     data.items.forEach(movie => {
@@ -144,6 +149,7 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
           moviesEl.append(movieEl)
       }
     }) 
+    blockLoading.hidden = true
   }
 
   function getClassByRate(vote) {
@@ -166,9 +172,20 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
   
   movieListBtn.addEventListener('click', function() {
     pageNumber++
-    let newUrl = api_url + pageNumber
+    let newUrl = apiUrl + pageNumber
   
     getMovies(newUrl)
   
   })
+  
+const btnUp = document.querySelector('.container-movie__btnUp')
+const header = document.querySelector('.header')
+btnUp.addEventListener('click', function() {
+  elementScrollIntoView(header, {
+    behavior: "smooth",
+    block: 'start',
+  })
+})
 }
+
+

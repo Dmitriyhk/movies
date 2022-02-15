@@ -34,7 +34,6 @@ if (
   const movieText = document.querySelector(".description__text");
 
   function showMovies(data) {
-    console.log(data)
     movieImg.src = data.posterUrlPreview
     movieName.innerHTML = data.nameRu
     movieCountry.innerHTML = data.countries[0].country
@@ -71,6 +70,9 @@ if (
     let minutes = mins % 60
     if (hours === 0) {
       return minutes + ' мин'
+    }
+    if (minutes === 0) {
+      return hours + 'ч'
     }
     return hours + 'ч ' + minutes + 'мин'
   }
