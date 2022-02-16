@@ -1,6 +1,6 @@
 import './search'
-
-let body = document.querySelector('body')
+const iconBurger = document.querySelector('.header-burger')
+const body = document.querySelector('body')
 if (localStorage.getItem('nightMode') == 2) {
   body.style.backgroundColor = '#fff'
   body.style.color = '#000'
@@ -12,6 +12,7 @@ if (localStorage.getItem('nightMode') == 2) {
 
 const ball = document.querySelector(".toggle-ball");
 const toggle = document.querySelector(".toggle");
+
 
 ball.addEventListener("click", () => {
   if (localStorage.getItem('nightMode') == 2) {
@@ -28,3 +29,13 @@ ball.addEventListener("click", () => {
     toggle.classList.toggle("active")
   }
 });
+
+const header = document.querySelector(".header");
+const nav = document.querySelector(".nav");
+const control = document.querySelector(".control");
+
+iconBurger.addEventListener('click', function() {
+  header.classList.toggle('-active')
+  nav.classList.toggle('-active')
+  control.classList.toggle('-active')
+})
