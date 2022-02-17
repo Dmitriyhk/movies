@@ -2,7 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const ImageminPlugin = require('imagemin-webpack')
@@ -50,11 +49,6 @@ const plugins = () => {
     new MiniCssExtractPlugin({
       filename: `./css/${filename('css')}`
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {from: path.resolve(__dirname, 'src/assets') , to: path.resolve(__dirname, 'app')}
-    //   ]
-    // }),
   ]
 
   if (isProd) {

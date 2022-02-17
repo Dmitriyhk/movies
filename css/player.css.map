@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,OAAO,CAAC;EACN,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,eAAe;CACxB",
-    "sources": [
-        "../src/modules/watch_movie/player/player.scss"
-    ],
-    "names": [],
-    "file": "player.css"
-}
