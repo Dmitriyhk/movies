@@ -112,4 +112,41 @@
   }
 }
 
+@media (max-width: $laptop) {
+  .banner {
+    &__text-block-wrapper {
+      max-width: 350px;
+    }
+    &__title{
+      font-size: 33px;
+  }
+  }
+}
 
+@media (max-width: $tablet){
+  .banner {
+    &__inner{
+        background: url('../img/BannerBlack.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__text-block-wrapper{
+        width: 100%;
+        background: none;
+        box-shadow: none;
+    }
+
+    &__text-block{
+        top: auto;
+        bottom: 10%;
+    }
+
+    &__title{
+        font-size: 33px;
+    }
+    &__text {
+      color: $white;
+    }
+  }
+}

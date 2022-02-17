@@ -163,7 +163,7 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
   }
 
   function setRating(vote) {
-    if (vote <=10 && vote >= 0) {
+    if (vote <=10 && vote >= 0 && vote !== null) {
       return true
     } else {
       return ''

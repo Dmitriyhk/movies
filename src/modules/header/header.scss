@@ -111,12 +111,12 @@
   transform: translateX(-20px);
 }
 
-@media (max-width: 870px) {
+@media (max-width: $tablet) {
   .header-burger {
     z-index: 10000;
     display: block;
     position: absolute;
-    top: 5%;
+    top: 35px;
     right: 5%;
     width: 30px;
     height: 18px;
@@ -177,7 +177,7 @@
   }
   .control {
     display: inline-block;
-    top: 30%;
+    top: 200px;
     left: -205%;
     transition: left 0.3s ease 0s;
     position: absolute;

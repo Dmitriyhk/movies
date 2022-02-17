@@ -67,4 +67,14 @@
     font-weight: 700;
     margin: -4px 0 0 0;
   }
+  @media (max-width: $laptop) {
+    &-item {
+      flex-basis: 48%;
+    }
+  }
+  @media (max-width: $mobile) {
+    &-item {
+      flex-basis: 100%;
+    }
+  }
 }

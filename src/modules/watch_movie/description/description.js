@@ -69,12 +69,12 @@ if (
     let hours = Math.floor(mins / 60)
     let minutes = mins % 60
     if (hours === 0) {
-      return minutes + ' мин'
+      return minutes + '&nbspмин'
     }
     if (minutes === 0) {
-      return hours + 'ч'
+      return hours + '&nbspч'
     }
-    return hours + 'ч ' + minutes + 'мин'
+    return hours + 'ч&nbsp' + minutes + 'мин'
   }
 }
 

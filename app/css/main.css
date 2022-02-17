@@ -120,7 +120,7 @@
     z-index: 10000;
     display: block;
     position: absolute;
-    top: 5%;
+    top: 35px;
     right: 5%;
     width: 30px;
     height: 18px;
@@ -167,7 +167,7 @@
       font-size: 18px; }
   .control {
     display: inline-block;
-    top: 30%;
+    top: 200px;
     left: -205%;
     transition: left 0.3s ease 0s;
     position: absolute; }
@@ -274,6 +274,27 @@
     top: calc(50% - 9px);
     left: 30px;
     right: 0; }
+
+@media (max-width: 1000px) {
+  .banner__text-block-wrapper {
+    max-width: 350px; }
+  .banner__title {
+    font-size: 33px; } }
+
+@media (max-width: 870px) {
+  .banner__inner {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+  .banner__text-block-wrapper {
+    width: 100%;
+    background: none;
+    box-shadow: none; }
+  .banner__text-block {
+    top: auto;
+    bottom: 10%; }
+  .banner__title {
+    font-size: 33px; } }
 
 .genres {
   display: flex;
