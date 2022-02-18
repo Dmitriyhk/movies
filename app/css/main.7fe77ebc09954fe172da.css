@@ -177,7 +177,7 @@
       margin: 25px 0; } }
 
 .banner__inner {
-  background: url(../img/banner.png) no-repeat;
+  background: url(../img/leagueBanner.png) no-repeat;
   background-position: right;
   height: 750px;
   border-radius: 20px;
@@ -283,7 +283,7 @@
 
 @media (max-width: 870px) {
   .banner__inner {
-    background: url(../img/bannerBlack.png);
+    background: url(../img/leagueBannerBlack.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center; }

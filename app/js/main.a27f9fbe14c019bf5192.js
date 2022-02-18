@@ -196,7 +196,7 @@ function showActor(data) {
       var div = document.createElement('div');
       var content = document.createElement('div');
       img.src = el.posterUrl;
-      link.href = "../movie.html?id=" + el.kinopoiskId;
+      link.href = "movie.html?id=" + el.kinopoiskId;
       img.classList.add('movies__img');
       link.classList.add('movies__link');
       div.classList.add('movies-item');
@@ -277,7 +277,7 @@ function showMovies(data) {
       var div = document.createElement('div');
       var content = document.createElement('div');
       img.src = el.posterUrlPreview;
-      _link.href = "../movie.html?id=" + el.filmId;
+      _link.href = "movie.html?id=" + el.filmId;
       img.classList.add('movies__img');
 
       _link.classList.add('movies__link');
@@ -362,7 +362,7 @@ function showActor(data) {
       var div = document.createElement('div');
       var content = document.createElement('div');
       img.src = el.posterUrlPreview;
-      link.href = "../movie.html?id=" + el.kinopoiskId;
+      link.href = "movie.html?id=" + el.kinopoiskId;
       img.classList.add('movies__img');
       link.classList.add('movies__link');
       div.classList.add('movies-item');

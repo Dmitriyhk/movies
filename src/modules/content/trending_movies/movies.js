@@ -28,7 +28,7 @@ function showMovies(data) {
       let div = document.createElement('div')
       let content = document.createElement('div')
       img.src = el.posterUrlPreview
-      link.href = "../movie.html?id=" + el.filmId
+      link.href = "movie.html?id=" + el.filmId
       img.classList.add('movies__img')
       link.classList.add('movies__link')
       div.classList.add('movies-item')

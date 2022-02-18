@@ -27,7 +27,7 @@ function showActor(data) {
       let div = document.createElement('div')
       let content = document.createElement('div')
       img.src = el.posterUrlPreview
-      link.href = "../movie.html?id=" + el.kinopoiskId
+      link.href = "movie.html?id=" + el.kinopoiskId
       img.classList.add('movies__img')
       link.classList.add('movies__link')
       div.classList.add('movies-item')
