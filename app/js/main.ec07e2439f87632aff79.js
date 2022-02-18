@@ -74,7 +74,7 @@ var swipers = document.querySelectorAll('.swiper');
 swipers.forEach(function (el) {
   var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](el, {
     modules: [swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation, swiper__WEBPACK_IMPORTED_MODULE_0__.Pagination],
-    slidesPerView: 2,
+    slidesPerView: 1.6,
     slidesPerGroup: 1,
     spaceBetween: 10,
     navigation: {
@@ -82,15 +82,18 @@ swipers.forEach(function (el) {
       prevEl: el.previousSibling.firstChild.querySelector('.swiper-button-prev')
     },
     breakpoints: {
-      500: {
-        slidesPerView: 3
+      400: {
+        slidesPerView: 2.2
       },
-      750: {
-        slidesPerView: 4,
+      600: {
+        slidesPerView: 3.2
+      },
+      800: {
+        slidesPerView: 4.2,
         spaceBetween: 15
       },
       1000: {
-        slidesPerView: 5,
+        slidesPerView: 5.2,
         spaceBetween: 20,
         slidesPerGroup: 2
       },
