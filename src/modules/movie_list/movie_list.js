@@ -78,6 +78,7 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
     if (pageNumber >= pagesCount) {
       movieListBtn.hidden = true
     }
+    movieListBtn.innerHTML = 'Загрузить еще'
   }
 
   function showMoviesById(data) {
@@ -171,11 +172,12 @@ if(location.href.split('/')[location.href.split('/').length - 1].split('.')[0] =
   }
   
   movieListBtn.addEventListener('click', function() {
+    movieListBtn.innerHTML = 'Загрузка...'
     pageNumber++
     let newUrl = apiUrl + pageNumber
   
     getMovies(newUrl)
-  
+    
   })
   
 const btnUp = document.querySelector('.container-movie__btnUp')

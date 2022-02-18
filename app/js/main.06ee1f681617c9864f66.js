@@ -497,7 +497,9 @@ if (location.href.split('/')[location.href.split('/').length - 1].split('.')[0] 
                 movieListBtn.hidden = true;
               }
 
-            case 8:
+              movieListBtn.innerHTML = 'Загрузить еще';
+
+            case 9:
             case "end":
               return _context.stop();
           }
@@ -617,6 +619,7 @@ if (location.href.split('/')[location.href.split('/').length - 1].split('.')[0] 
 
   getMovies(apiUrl);
   movieListBtn.addEventListener('click', function () {
+    movieListBtn.innerHTML = 'Загрузка...';
     pageNumber++;
     var newUrl = apiUrl + pageNumber;
     getMovies(newUrl);
@@ -778,7 +781,7 @@ if (location.href.split("/")[location.href.split("/").length - 1].split(".")[0] 
       var div = document.createElement('div');
       var content = document.createElement('div');
       img.src = el.posterUrlPreview;
-      _link.href = "../movie.html?id=" + el.filmId;
+      _link.href = "movie.html?id=" + el.filmId;
       img.classList.add('movies-recomendation__img');
 
       _link.classList.add('movies-recomendation__link');
