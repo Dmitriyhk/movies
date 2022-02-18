@@ -644,6 +644,7 @@ if (location.href.split('/')[location.href.split('/').length - 1].split('.')[0] 
 
 if (location.href.split("/")[location.href.split("/").length - 1].split(".")[0] == "movie") {
   var showMovies = function showMovies(data) {
+    document.title = data.nameRu;
     movieImg.src = data.posterUrlPreview;
     movieName.innerHTML = data.nameRu;
     movieCountry.innerHTML = data.countries[0].country;

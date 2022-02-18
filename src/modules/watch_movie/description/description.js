@@ -34,6 +34,7 @@ if (
   const movieText = document.querySelector(".description__text");
 
   function showMovies(data) {
+    document.title = data.nameRu
     movieImg.src = data.posterUrlPreview
     movieName.innerHTML = data.nameRu
     movieCountry.innerHTML = data.countries[0].country
